@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    // Enable strict type checking
+    "strict": true,
+    // Target modern JavaScript
+    "target": "ES6",
+    // Output ES modules
+    "module": "ESNext",
+    // Use Node-style resolution
+    "moduleResolution": "Node",
+    // Allow JSX in TSX files (React)
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowJs": true,
+    "noEmit": true,
+    // Base path is root of the project
+    "baseUrl": ".",
+    // Path alias to make imports like "@/lib/db"
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  // Includes everything under root directory
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  // Exclude test files and build output
+  "exclude": [
+    "node_modules",
+    ".next",
+    "dist"
+  ]
+}

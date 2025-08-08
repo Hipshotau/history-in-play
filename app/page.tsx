@@ -1,0 +1,37 @@
+// app/page.tsx
+import Link from 'next/link';
+
+export default function HomePage() {
+  return (
+    <div className="space-y-12">
+      <section className="text-center">
+        <h1 className="text-4xl font-bold mb-2">History In Play</h1>
+        <p className="text-gray-700 text-lg">Discover the past through curated books, wargames, and historical events.</p>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Explore</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card href="/books" title="Books" desc="Curated reading by historical period." />
+          <Card href="/boardgames" title="Board Games" desc="Playthroughs of past conflicts." />
+          <Card href="/events" title="Events" desc="Battles, wars, and historical moments." />
+          <Card href="/playtests" title="Playtests" desc="Try new wargames and give feedback." />
+          <Card href="/forum" title="Forum" desc="Discuss strategies, timelines, and systems." />
+          <Card href="/collection" title="Your Collection" desc="Import or track your BGG games." />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function Card({ href, title, desc }: { href: string; title: string; desc: string }) {
+  return (
+    <Link
+      href={href}
+      className="block bg-white rounded shadow hover:shadow-md transition p-6 border"
+    >
+      <h3 className="text-lg font-semibold mb-1">{title}</h3>
+      <p className="text-gray-600 text-sm">{desc}</p>
+    </Link>
+  );
+}
