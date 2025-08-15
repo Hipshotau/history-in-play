@@ -2,3 +2,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Overall page styling */
+body {
+  @apply bg-black text-yellow-300 font-serif;
+  background-color: #000; /* fallback */
+}
+
+/* Gold metallic style for heading/title */
+h1, h2, h3 {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle hover effect for nav links */
+a {
+  @apply transition-colors duration-200;
+  color: #FFD700;
+}
+
+a:hover {
+  color: #FFA500;
+}
+
+/* Dropdown styling */
+nav ul li:hover > ul {
+  display: block;
+}
+
+nav ul li > ul {
+  background-color: #111;
+  border: 1px solid #333;
+}
+
+nav ul li > ul li {
+  padding: 0.25rem 0.5rem;
+}
+
+nav ul li > ul li:hover {
+  background-color: #222;
+}
+
+/* Navbar text */
+nav {
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+}
+
+/* Main content area for better readability */
+main {
+  background-color: #0f0f0f;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  color: #f7f7f7;
+}
+
+/* Optional: smoother font rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+}

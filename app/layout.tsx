@@ -1,35 +1,64 @@
 // app/layout.tsx
-import './globals.css';
-import Link from 'next/link';
-import type { Metadata } from 'next';
+import './globals.css'
+import Link from 'next/link'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'History In Play',
-  description: 'Explore historical events through books and board games.',
-};
+  description: 'Explore history through books and board games.',
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body className="bg-gray-100 text-gray-900 min-h-screen">
-        <header className="bg-blue-900 text-white px-4 py-3 shadow">
-          <nav className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
-            <Link href="/" className="text-xl font-bold">History In Play</Link>
-            <ul className="flex flex-wrap gap-4 text-sm">
-              <li><Link href="/books">Books</Link></li>
-              <li><Link href="/boardgames">Board Games</Link></li>
-              <li><Link href="/events">Events</Link></li>
-              <li><Link href="/questions">Q&A</Link></li>
-              <li><Link href="/playtests">Playtests</Link></li>
-              <li><Link href="/forum">Forum</Link></li>
-              <li><Link href="/collection">Collection</Link></li>
+      <body className="bg-gray-100 text-gray-900">
+        <header className="border-b bg-white shadow-md sticky top-0 z-50">
+          <div className="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 className="text-4xl font-bold text-center w-full">History In Play</h1>
+          </div>
+          <nav className="max-w-6xl mx-auto px-4 pb-4">
+            <ul className="flex flex-wrap justify-center gap-6 text-lg font-medium text-gray-700">
+              <li className="relative group">
+                <span className="cursor-pointer">Books ▾</span>
+                <ul className="absolute hidden group-hover:block bg-white border mt-2 p-2 space-y-1">
+                  <li><Link href="/books">All Books</Link></li>
+                  <li><Link href="/books?recommended=true">Recommended</Link></li>
+                  <li><Link href="/books/events">Search by Event</Link></li>
+                </ul>
+              </li>
+              <li className="relative group">
+                <span className="cursor-pointer">Board Games ▾</span>
+                <ul className="absolute hidden group-hover:block bg-white border mt-2 p-2 space-y-1">
+                  <li><Link href="/boardgames">All Games</Link></li>
+                  <li><Link href="/playtests">Playtest Queue</Link></li>
+                  <li><Link href="/playtests/upload">Submit Game</Link></li>
+                </ul>
+              </li>
+              <li className="relative group">
+                <span className="cursor-pointer">Forum ▾</span>
+                <ul className="absolute hidden group-hover:block bg-white border mt-2 p-2 space-y-1">
+                  <li><Link href="/forum">All Threads</Link></li>
+                  <li><Link href="/questions/ask">Ask a Question</Link></li>
+                </ul>
+              </li>
+              <li className="relative group">
+                <span className="cursor-pointer">Admin ▾</span>
+                <ul className="absolute hidden group-hover:block bg-white border mt-2 p-2 space-y-1">
+                  <li><Link href="/admin/sync">Sync Catalog</Link></li>
+                  <li><Link href="/admin/todo">To-Do List</Link></li>
+                  <li><Link href="/admin/pending">Pending Games</Link></li>
+                </ul>
+              </li>
+              <li><Link href="/collection">My Collection</Link></li>
               <li><Link href="/profile">Profile</Link></li>
-              <li><Link href="/admin">Admin</Link></li>
             </ul>
           </nav>
         </header>
-        <main className="max-w-6xl mx-auto p-6">{children}</main>
+        <main className="max-w-6xl mx-auto px-4 py-12">{children}</main>
       </body>
     </html>
-  );
+  )
 }
