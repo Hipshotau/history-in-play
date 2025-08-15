@@ -1,15 +1,13 @@
-/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Overall page styling */
+/* Body Styling */
 body {
   @apply bg-black text-yellow-300 font-serif;
-  background-color: #000; /* fallback */
 }
 
-/* Gold metallic style for heading/title */
+/* Heading Text Gradient */
 h1, h2, h3 {
   font-family: 'Georgia', serif;
   background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
@@ -17,7 +15,7 @@ h1, h2, h3 {
   -webkit-text-fill-color: transparent;
 }
 
-/* Subtle hover effect for nav links */
+/* Anchor Styling */
 a {
   @apply transition-colors duration-200;
   color: #FFD700;
@@ -27,7 +25,7 @@ a:hover {
   color: #FFA500;
 }
 
-/* Dropdown styling */
+/* Nav Dropdowns */
 nav ul li:hover > ul {
   display: block;
 }
@@ -35,6 +33,7 @@ nav ul li:hover > ul {
 nav ul li > ul {
   background-color: #111;
   border: 1px solid #333;
+  z-index: 50;
 }
 
 nav ul li > ul li {
@@ -45,13 +44,13 @@ nav ul li > ul li:hover {
   background-color: #222;
 }
 
-/* Navbar text */
+/* Navbar Text */
 nav {
   font-family: 'Georgia', serif;
   text-transform: uppercase;
 }
 
-/* Main content area for better readability */
+/* Main Content */
 main {
   background-color: #0f0f0f;
   border-radius: 0.5rem;
@@ -59,7 +58,40 @@ main {
   color: #f7f7f7;
 }
 
-/* Optional: smoother font rendering */
+/* Smooth Font */
 html {
   -webkit-font-smoothing: antialiased;
 }
+
+/* Enable dark mode styles using Tailwind's class strategy */
+body {
+  @apply bg-white text-black font-serif transition-colors duration-300;
+}
+
+html.dark body {
+  @apply bg-black text-yellow-300;
+}
+
+html.dark main {
+  @apply bg-[#0f0f0f] text-white;
+}
+
+a {
+  color: #444;
+}
+html.dark a {
+  color: #FFD700;
+}
+html.dark a:hover {
+  color: #FFA500;
+}
+
+/* In app/globals.css */
+
+.glow-gold {
+  background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
