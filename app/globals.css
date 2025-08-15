@@ -1,21 +1,23 @@
+/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Body Styling */
+/* Overall black background with gold text */
 body {
   @apply bg-black text-yellow-300 font-serif;
 }
 
-/* Heading Text Gradient */
-h1, h2, h3 {
+/* Glowing golden title effect */
+.glow-text {
   font-family: 'Georgia', serif;
   background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px #FFD70066, 0 0 12px #FFD70033;
 }
 
-/* Anchor Styling */
+/* Link styles */
 a {
   @apply transition-colors duration-200;
   color: #FFD700;
@@ -25,7 +27,7 @@ a:hover {
   color: #FFA500;
 }
 
-/* Nav Dropdowns */
+/* Dropdown styling */
 nav ul li:hover > ul {
   display: block;
 }
@@ -33,7 +35,6 @@ nav ul li:hover > ul {
 nav ul li > ul {
   background-color: #111;
   border: 1px solid #333;
-  z-index: 50;
 }
 
 nav ul li > ul li {
@@ -44,13 +45,13 @@ nav ul li > ul li:hover {
   background-color: #222;
 }
 
-/* Navbar Text */
+/* Navbar text */
 nav {
   font-family: 'Georgia', serif;
   text-transform: uppercase;
 }
 
-/* Main Content */
+/* Main content area */
 main {
   background-color: #0f0f0f;
   border-radius: 0.5rem;
@@ -58,40 +59,38 @@ main {
   color: #f7f7f7;
 }
 
-/* Smooth Font */
+/* Font smoothing */
 html {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Enable dark mode styles using Tailwind's class strategy */
-body {
-  @apply bg-white text-black font-serif transition-colors duration-300;
-}
-
-html.dark body {
-  @apply bg-black text-yellow-300;
-}
-
-html.dark main {
-  @apply bg-[#0f0f0f] text-white;
-}
-
-a {
-  color: #444;
-}
-html.dark a {
-  color: #FFD700;
-}
-html.dark a:hover {
-  color: #FFA500;
-}
-
-/* In app/globals.css */
-
-.glow-gold {
+/* Glowing golden title effect */
+.glow-text {
+  font-family: 'Georgia', serif;
   background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+  text-shadow:
+    0 0 6px rgba(255, 215, 0, 0.4),
+    0 0 12px rgba(255, 215, 0, 0.2);
 }
 
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 8px #FFD700,
+      0 0 16px #FFB700,
+      0 0 24px #FFD700;
+  }
+  50% {
+    text-shadow:
+      0 0 12px #FFFACD,
+      0 0 24px #FFD700,
+      0 0 36px #FFB700;
+  }
+}
+
+.glow-text {
+  /* ... other styles above ... */
+  animation: pulse-glow 3s infinite;
+}
