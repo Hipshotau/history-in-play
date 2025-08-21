@@ -1,70 +1,24 @@
-/* app/globals.css */
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Overall black background with gold text */
-body {
+html, body {
   @apply bg-black text-yellow-300 font-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Glowing golden title effect */
-.glow-text {
+/* Fix headers */
+h1, h2, h3 {
   font-family: 'Georgia', serif;
   background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 6px #FFD70066, 0 0 12px #FFD70033;
 }
 
-/* Link styles */
-a {
-  @apply transition-colors duration-200;
-  color: #FFD700;
-}
-
-a:hover {
-  color: #FFA500;
-}
-
-/* Dropdown styling */
-nav ul li:hover > ul {
-  display: block;
-}
-
-nav ul li > ul {
-  background-color: #111;
-  border: 1px solid #333;
-}
-
-nav ul li > ul li {
-  padding: 0.25rem 0.5rem;
-}
-
-nav ul li > ul li:hover {
-  background-color: #222;
-}
-
-/* Navbar text */
-nav {
-  font-family: 'Georgia', serif;
-  text-transform: uppercase;
-}
-
-/* Main content area */
-main {
-  background-color: #0f0f0f;
-  border-radius: 0.5rem;
-  padding: 2rem;
-  color: #f7f7f7;
-}
-
-/* Font smoothing */
-html {
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Glowing golden title effect */
+/* Glowing title */
 .glow-text {
   font-family: 'Georgia', serif;
   background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
@@ -75,22 +29,42 @@ html {
     0 0 12px rgba(255, 215, 0, 0.2);
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    text-shadow:
-      0 0 8px #FFD700,
-      0 0 16px #FFB700,
-      0 0 24px #FFD700;
-  }
-  50% {
-    text-shadow:
-      0 0 12px #FFFACD,
-      0 0 24px #FFD700,
-      0 0 36px #FFB700;
-  }
+/* Remove all white from dropdowns */
+nav ul li > ul {
+  background-color: #111 !important;
+  border: 1px solid #333;
 }
 
-.glow-text {
-  /* ... other styles above ... */
-  animation: pulse-glow 3s infinite;
+/* Hover dropdowns */
+nav ul li > ul li:hover {
+  background-color: #222;
+}
+
+/* Nav text styling */
+nav {
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+}
+
+/* Prevent random white blocks */
+main, header, nav {
+  background-color: transparent;
+}
+
+/* Ensure header is black with no border */
+header {
+  background-color: #000 !important;
+  border-bottom: 1px solid #FFD700 !important;
+}
+
+/* Kill all white or transparent containers */
+div, section, article, aside {
+  background-color: transparent !important;
+}
+
+/* Specific cleanup for Markdown tables or docs-style content */
+table, thead, tbody, tr, th, td {
+  background-color: transparent !important;
+  color: #FFD700;
+  border-color: #FFD700;
 }

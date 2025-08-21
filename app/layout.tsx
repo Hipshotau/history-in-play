@@ -1,4 +1,3 @@
-// app/layout.tsx
 import './globals.css'
 import Link from 'next/link'
 
@@ -12,16 +11,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-black text-yellow-300 font-serif">
         <header className="sticky top-0 z-50 bg-black border-b border-yellow-700 shadow-md">
-          <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="max-w-6xl mx-auto px-4 py-6 flex justify-center">
             <Link
               href="/"
-              className="text-3xl font-bold glow-text hover:opacity-90 transition"
+              className="text-5xl md:text-6xl font-bold glow-text text-center"
             >
               History In Play
             </Link>
           </div>
 
-          <nav className="max-w-6xl mx-auto px-4 pb-2">
+          <nav className="max-w-6xl mx-auto px-4 pb-4">
             <ul className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm sm:text-base font-medium text-yellow-300">
               <Dropdown label="Books" links={[
                 { href: '/books', text: 'All Books' },
@@ -48,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
 
-        <main className="max-w-6xl mx-auto px-4 py-12 bg-[#0f0f0f] rounded text-white">{children}</main>
+        <main className="max-w-6xl mx-auto px-4 py-12 bg-black text-white">{children}</main>
       </body>
     </html>
   )
