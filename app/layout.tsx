@@ -60,7 +60,7 @@ function Dropdown({ label, links }: { label: string, links: { href: string, text
       <ul className="absolute left-0 hidden group-hover:block bg-[#111] border border-yellow-800 mt-2 p-2 space-y-1 z-50 rounded shadow">
         {links.map(({ href, text }) => (
           <li key={href}>
-            <Link href={href} className="block px-2 py-1 hover:bg-yellow-800/20">{text}</Link>
+            <Link href={href} className="block px-2 py-1 text-yellow-300 hover:text-yellow-100 hover:bg-yellow-800/20">{text}</Link>
           </li>
         ))}
       </ul>
