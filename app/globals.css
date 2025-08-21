@@ -68,3 +68,19 @@ table, thead, tbody, tr, th, td {
   color: #FFD700;
   border-color: #FFD700;
 }
+
+html, body {
+  background-color: #000 !important;
+  color: #FFD700;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main, header, nav, section, div {
+  background-color: transparent !important;
+}
+
+#__next {
+  background-color: #000 !important;
+}
